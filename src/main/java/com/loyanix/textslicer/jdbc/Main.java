@@ -1,17 +1,16 @@
 package com.loyanix.textslicer.jdbc;
 
-import com.loyanix.textslicer.jdbc.Services.fileInfo;
+import com.loyanix.textslicer.jdbc.Services.FileInfo;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
     private static List<List> list = new ArrayList<>();
-    private static List<fileInfo> fileInfoList= new ArrayList<>();
+    private static List<FileInfo> fileInfoList= new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -19,7 +18,7 @@ public class Main {
         String pathToDirectory = in.nextLine();
         File directory = new File(pathToDirectory);
         getListOfFiles(directory);
-        for (List<String> listFiles : list) fileInfoList.add(new fileInfo(listFiles));
+        for (List<String> listFiles : list) fileInfoList.add(new FileInfo(listFiles));
 /*
         String[] wordsInLine = {"lol", "asdsa", "dasdasda", "sd"};
         for(String out:wordsInLine){

@@ -3,7 +3,7 @@ package com.loyanix.textslicer.jdbc.Services;
 import java.util.ArrayList;
 import java.util.List;
 
-public class fileInfo {
+public class FileInfo {
 
 
     private String longestWord;
@@ -12,11 +12,11 @@ public class fileInfo {
     private int lengthOfShortestWord;
     private int avgLengthWord;
     private int avgLengthLine;
-    private List<lineInfo> lineInfos = new ArrayList<>();
+    private List<LineInfo> lineInfos = new ArrayList<>();
 
-    public fileInfo(List<String> linesList) {
+    public FileInfo(List<String> linesList) {
 
-        for(String line : linesList) lineInfos.add(new lineInfo(line));
+        for(String line : linesList) lineInfos.add(new LineInfo(line));
         longestWord = findLongestWord(lineInfos);
         lengthOfLongestWord = longestWord.length();
         shortestWord = findShortestWord(lineInfos);
@@ -26,22 +26,22 @@ public class fileInfo {
 
     }
 
-    private static String findLongestWord(List<lineInfo> lineInfos){
+    private static String findLongestWord(List<LineInfo> lineInfos){
 
         return null;
     }
 
-    private static String findShortestWord(List<lineInfo> lineInfos){
+    private static String findShortestWord(List<LineInfo> lineInfos){
 
         return null;
     }
 
-    private static int findAvgLengthWord(List<lineInfo> lineInfos){
+    private static int findAvgLengthWord(List<LineInfo> lineInfos){
 
         return 0;
     }
 
-    private static int findAvgLengthLine(List<lineInfo> lineInfos){
+    private static int findAvgLengthLine(List<LineInfo> lineInfos){
 
         return 0;
     }
@@ -70,13 +70,13 @@ public class fileInfo {
         return avgLengthLine;
     }
 
-    public List<lineInfo> getLineInfos() {
+    public List<LineInfo> getLineInfos() {
         return lineInfos;
     }
 
     @Override
     public String toString() {
-        return "fileInfo{" +
+        return "FileInfo{" +
                 "longestWord='" + longestWord + '\'' +
                 ", lengthOfLongestWord=" + lengthOfLongestWord +
                 ", shortestWord='" + shortestWord + '\'' +

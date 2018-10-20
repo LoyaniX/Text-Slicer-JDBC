@@ -1,5 +1,5 @@
 package com.loyanix.textslicer.jdbc.DAO;
 
-public class dataBaseConnect {
+public class DataBaseConnect {
 
 }

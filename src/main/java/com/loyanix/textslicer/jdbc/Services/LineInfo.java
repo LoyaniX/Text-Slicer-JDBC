@@ -2,7 +2,7 @@ package com.loyanix.textslicer.jdbc.Services;
 
 import java.util.Arrays;
 
-public class lineInfo {
+public class LineInfo {
 
     private String longestWord;
     private int lengthOfLongestWord;
@@ -11,7 +11,7 @@ public class lineInfo {
     private int avgLengthWord;
     private int lengthLine;
 
-    public lineInfo (String line){
+    public LineInfo(String line){
 
         String[] wordsInLine = line.split(" ");
         longestWord = findLongestWord(wordsInLine);
@@ -50,7 +50,7 @@ public class lineInfo {
 
     @Override
     public String toString() {
-        return "lineInfo{" +
+        return "LineInfo{" +
                 "longestWord='" + longestWord + '\'' +
                 ", lengthOfLongestWord=" + lengthOfLongestWord +
                 ", shortestWord='" + shortestWord + '\'' +
