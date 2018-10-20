@@ -1,4 +1,4 @@
-package com.loyanix.textslicer.jdbc.statisticClasses;
+package com.loyanix.textslicer.jdbc.Services;
 
 public class lineInfo {
 

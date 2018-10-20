@@ -1,10 +1,11 @@
 package com.loyanix.textslicer.jdbc;
 
-import com.loyanix.textslicer.jdbc.statisticClasses.fileInfo;
+import com.loyanix.textslicer.jdbc.Services.fileInfo;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -13,7 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String pathToDirectory = " ";
+        Scanner in = new Scanner(System.in);
+        String pathToDirectory = in.nextLine();
         File directory = new File(pathToDirectory);
         getListOfFiles(directory);
         for (List<String> listFiles : list) fileInfoList.add(new fileInfo(listFiles));

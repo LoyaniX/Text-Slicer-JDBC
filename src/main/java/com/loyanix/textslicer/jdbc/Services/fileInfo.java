@@ -1,4 +1,4 @@
-package com.loyanix.textslicer.jdbc.statisticClasses;
+package com.loyanix.textslicer.jdbc.Services;
 
 import java.util.ArrayList;
 import java.util.List;
