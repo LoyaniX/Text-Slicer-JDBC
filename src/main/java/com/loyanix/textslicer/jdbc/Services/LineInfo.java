@@ -28,7 +28,7 @@ public class LineInfo {
 
     private static String findShortestWord(String[] wordsInLine){
         String[] words = sortOfWordLength(wordsInLine);
-        return words[words.length-1];
+        return words[0];
     }
 
     private static String[] sortOfWordLength ( String[] wordsInLine){
