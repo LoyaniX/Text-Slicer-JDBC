@@ -4,6 +4,7 @@ import com.loyanix.textslicer.jdbc.Services.fileInfo;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,6 +20,19 @@ public class Main {
         File directory = new File(pathToDirectory);
         getListOfFiles(directory);
         for (List<String> listFiles : list) fileInfoList.add(new fileInfo(listFiles));
+/*
+        String[] wordsInLine = {"lol", "asdsa", "dasdasda", "sd"};
+        for(String out:wordsInLine){
+            System.out.println(out);
+        }
+        System.out.println(wordsInLine.length);
+        System.out.println(wordsInLine[wordsInLine.length-1]);
+        System.out.println(" ");
+        Arrays.asList(wordsInLine).sort((first, second) -> Integer.compare(first.length(), second.length()));
+        System.out.println(wordsInLine.length);
+        for(String out:wordsInLine){
+            System.out.println(out);
+        }*/
 
     }
 

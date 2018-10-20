@@ -7,7 +7,7 @@ public class fileInfo {
 
 
     private String longestWord;
-    private int lengthOflongestWord;
+    private int lengthOfLongestWord;
     private String shortestWord;
     private int lengthOfShortestWord;
     private int avgLengthWord;
@@ -18,7 +18,7 @@ public class fileInfo {
 
         for(String line : linesList) lineInfos.add(new lineInfo(line));
         longestWord = findLongestWord(lineInfos);
-        lengthOflongestWord = longestWord.length();
+        lengthOfLongestWord = longestWord.length();
         shortestWord = findShortestWord(lineInfos);
         lengthOfShortestWord = shortestWord.length();
         avgLengthWord = findAvgLengthWord(lineInfos);
@@ -50,8 +50,8 @@ public class fileInfo {
         return longestWord;
     }
 
-    public int getLengthOflongestWord() {
-        return lengthOflongestWord;
+    public int getLengthOfLongestWord() {
+        return lengthOfLongestWord;
     }
 
     public String getShortestWord() {
@@ -78,7 +78,7 @@ public class fileInfo {
     public String toString() {
         return "fileInfo{" +
                 "longestWord='" + longestWord + '\'' +
-                ", lengthOflongestWord=" + lengthOflongestWord +
+                ", lengthOfLongestWord=" + lengthOfLongestWord +
                 ", shortestWord='" + shortestWord + '\'' +
                 ", lengthOfShortestWord=" + lengthOfShortestWord +
                 ", avgLengthWord=" + avgLengthWord +
