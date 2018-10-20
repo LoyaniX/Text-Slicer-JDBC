@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) throws SQLException {
 
         Scanner in = new Scanner(System.in);
-        Table table = new Table();
+        Table tables = new Table();
         System.out.println("Hello, please enter path to the directory with file(s) : ");
         String pathToDirectory = in.nextLine();
         File directory = new File(pathToDirectory);
@@ -33,6 +33,7 @@ public class Main {
         for(FileInfo out :fileInfoList){
             System.out.println(out.toString());
         }
+        tables.insertToDB(fileInfoList);
     }
 
     private static void getListOfFiles(File file){
