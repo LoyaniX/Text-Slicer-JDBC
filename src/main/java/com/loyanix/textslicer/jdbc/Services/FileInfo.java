@@ -7,6 +7,7 @@ import java.util.List;
 public class FileInfo {
 
 
+    private String fileName;
     private String longestWord;
     private int lengthOfLongestWord;
     private String shortestWord;
@@ -15,8 +16,8 @@ public class FileInfo {
     private int avgLengthLine;
     private List<LineInfo> lineInfos = new ArrayList<>();
 
-    public FileInfo(List<String> linesList) {
-
+    public FileInfo(List<String> linesList, String fileName) {
+        this.fileName = fileName;
         for(String line : linesList) lineInfos.add(new LineInfo(line));
         longestWord = findLongestWord(lineInfos);
         lengthOfLongestWord = longestWord.length();
@@ -69,10 +70,13 @@ public class FileInfo {
 
     public List<LineInfo> getLineInfos() { return lineInfos; }
 
+    public String getFileName() { return fileName; }
+
     @Override
     public String toString() {
         return "FileInfo{" +
-                "longestWord='" + longestWord + '\'' +
+                "fileName='" + fileName + '\'' +
+                ", longestWord='" + longestWord + '\'' +
                 ", lengthOfLongestWord=" + lengthOfLongestWord +
                 ", shortestWord='" + shortestWord + '\'' +
                 ", lengthOfShortestWord=" + lengthOfShortestWord +
