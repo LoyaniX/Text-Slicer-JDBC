@@ -57,6 +57,7 @@ public class LineInfo {
                 ", lengthOfShortestWord=" + lengthOfShortestWord +
                 ", avgLengthWord=" + avgLengthWord +
                 ", lengthLine=" + lengthLine +
-                '}';
+                "}" +
+                "\n\t\t\t\t ";
     }
 }

@@ -50,7 +50,7 @@ public class FileInfo {
 
     private static int findAvgLengthLine(List<LineInfo> lineInfos){
         int[] lengthLine = new int[lineInfos.size()];
-        for(int count = 0; count < lineInfos.size(); count++)   lengthLine[count] = lineInfos.get(count).getAvgLengthWord();
+        for(int count = 0; count < lineInfos.size(); count++)   lengthLine[count] = lineInfos.get(count).getLengthLine();
         Arrays.sort(lengthLine);
         return (lengthLine[0] + lengthLine[lengthLine.length-1])/2;
     }
@@ -78,7 +78,9 @@ public class FileInfo {
                 ", lengthOfShortestWord=" + lengthOfShortestWord +
                 ", avgLengthWord=" + avgLengthWord +
                 ", avgLengthLine=" + avgLengthLine +
-                ", lineInfos=" + lineInfos +
+                ",\n" +
+                "\t\tlineInfos=" + lineInfos +
+                "\n" +
                 '}';
     }
 
