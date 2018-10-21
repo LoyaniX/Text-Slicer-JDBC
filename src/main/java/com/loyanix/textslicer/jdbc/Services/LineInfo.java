@@ -48,6 +48,30 @@ public class LineInfo {
 
     public int getLengthLine() { return lengthLine; }
 
+    public void setLongestWord(String longestWord) {
+        this.longestWord = longestWord;
+    }
+
+    public void setLengthOfLongestWord(int lengthOfLongestWord) {
+        this.lengthOfLongestWord = lengthOfLongestWord;
+    }
+
+    public void setShortestWord(String shortestWord) {
+        this.shortestWord = shortestWord;
+    }
+
+    public void setLengthOfShortestWord(int lengthOfShortestWord) {
+        this.lengthOfShortestWord = lengthOfShortestWord;
+    }
+
+    public void setAvgLengthWord(int avgLengthWord) {
+        this.avgLengthWord = avgLengthWord;
+    }
+
+    public void setLengthLine(int lengthLine) {
+        this.lengthLine = lengthLine;
+    }
+
     @Override
     public String toString() {
         return "LineInfo{" +

@@ -4,6 +4,7 @@ import com.loyanix.textslicer.jdbc.Services.FileInfo;
 import com.loyanix.textslicer.jdbc.Services.LineInfo;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Table {
@@ -94,4 +95,35 @@ public class Table {
         }
     }
 
+    public static List<FileInfo> selectAllFromDB(){
+        List<FileInfo> fileInfo = new ArrayList<>();
+        List<LineInfo> lineInfos = new ArrayList<>();
+        ResultSet resultSet;
+        ResultSet resultSetFile;
+        try(Connection connection = DataBaseConnect.connection()) {
+            Statement statementLine = connection.createStatement();
+            Statement statementFile = connection.createStatement();
+            String sqlSelectFile = "SELECT * FROM INFO_ABOUT_FILES";
+            resultSetFile = statementFile.executeQuery(sqlSelectFile);
+            while (resultSetFile.next()){
+                String sqlSelect = "SELECT * FROM INFO_ABOUT_LINES WHERE ID_FILE = " + resultSetFile.getRow();
+                resultSet = statementLine.executeQuery(sqlSelect);
+                lineInfos.clear();
+                while (resultSet.next())   {
+                    LineInfo lineInfo = new LineInfo("");
+                    lineInfo.setLongestWord(resultSet.getString("LONGEST_WORD_IN_LINE"));
+                    lineInfo.setLengthOfLongestWord(resultSet.getInt("LENGTH_WORD_LONG"));
+                    lineInfo.setShortestWord(resultSet.getString("SHORTEST_WORD_IN_LINE"));
+                    lineInfo.setLengthOfShortestWord(resultSet.getInt("LENGTH_WORD_SHORT"));
+                    lineInfo.setAvgLengthWord(resultSet.getInt("AVG_WORD_LENGTH_IN_LINE"));
+                    lineInfo.setLengthLine(resultSet.getInt("LINE_LENGTH"));
+                    lineInfos.add(lineInfo);
+                }
+                fileInfo.add(new FileInfo(lineInfos, resultSetFile.getString("NAME_OF_FILE"), null));
+            }
+            } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return fileInfo;
+    }
 }

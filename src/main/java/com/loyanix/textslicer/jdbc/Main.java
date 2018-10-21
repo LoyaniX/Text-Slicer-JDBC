@@ -18,6 +18,8 @@ public class Main {
     private static List<String> filesName = new ArrayList<>();
     private static List<FileInfo> fileInfoList = new ArrayList<>();
 
+    private static List<FileInfo> fileInfoListRead = null;
+
 
     public static void main(String[] args) throws SQLException {
 
@@ -30,10 +32,13 @@ public class Main {
         for (int count = 0; count < filesList.size(); count++) {
             fileInfoList.add(new FileInfo(filesList.get(count),filesName.get(count)));
         }
-        for(FileInfo out :fileInfoList){
+
+        tables.insertToDB(fileInfoList);
+        fileInfoListRead = tables.selectAllFromDB();
+        for(FileInfo out : tables.selectAllFromDB()){
             System.out.println(out.toString());
         }
-        tables.insertToDB(fileInfoList);
+
     }
 
     private static void getListOfFiles(File file){

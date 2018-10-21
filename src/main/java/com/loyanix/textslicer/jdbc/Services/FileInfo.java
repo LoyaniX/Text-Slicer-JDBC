@@ -14,11 +14,23 @@ public class FileInfo {
     private int lengthOfShortestWord;
     private int avgLengthWord;
     private int avgLengthLine;
-    private List<LineInfo> lineInfos = new ArrayList<>();
+    private List<LineInfo> lineInfos;
 
     public FileInfo(List<String> linesList, String fileName) {
         this.fileName = fileName;
+        lineInfos = new ArrayList<>();
         for(String line : linesList) lineInfos.add(new LineInfo(line));
+        longestWord = findLongestWord(lineInfos);
+        lengthOfLongestWord = longestWord.length();
+        shortestWord = findShortestWord(lineInfos);
+        lengthOfShortestWord = shortestWord.length();
+        avgLengthWord = findAvgLengthWord(lineInfos);
+        avgLengthLine = findAvgLengthLine(lineInfos);
+
+    }
+    public FileInfo(List<LineInfo> linesList, String fileName, String solve) {
+        this.fileName = fileName;
+        this.lineInfos = new ArrayList<>(linesList);
         longestWord = findLongestWord(lineInfos);
         lengthOfLongestWord = longestWord.length();
         shortestWord = findShortestWord(lineInfos);
@@ -71,6 +83,38 @@ public class FileInfo {
     public List<LineInfo> getLineInfos() { return lineInfos; }
 
     public String getFileName() { return fileName; }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public void setLongestWord(String longestWord) {
+        this.longestWord = longestWord;
+    }
+
+    public void setLengthOfLongestWord(int lengthOfLongestWord) {
+        this.lengthOfLongestWord = lengthOfLongestWord;
+    }
+
+    public void setShortestWord(String shortestWord) {
+        this.shortestWord = shortestWord;
+    }
+
+    public void setLengthOfShortestWord(int lengthOfShortestWord) {
+        this.lengthOfShortestWord = lengthOfShortestWord;
+    }
+
+    public void setAvgLengthWord(int avgLengthWord) {
+        this.avgLengthWord = avgLengthWord;
+    }
+
+    public void setAvgLengthLine(int avgLengthLine) {
+        this.avgLengthLine = avgLengthLine;
+    }
+
+    public void setLineInfos(List<LineInfo> lineInfos) {
+        this.lineInfos = lineInfos;
+    }
 
     @Override
     public String toString() {
