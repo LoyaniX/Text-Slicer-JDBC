@@ -15,23 +15,23 @@ public class Table {
 
     private static void createTable(){
         String sqlDropTableFile = "DROP TABLE IF EXISTS INFO_ABOUT_FILES";
-        String sqlCreateTableFile = "CREATE TABLE INFO_ABOUT_FILES(ID_FILE NUMBER PRIMARY KEY AUTO_INCREMENT NOT NULL," +
+        String sqlCreateTableFile = "CREATE TABLE INFO_ABOUT_FILES(ID_FILE INT PRIMARY KEY AUTO_INCREMENT NOT NULL," +
                 "NAME_OF_FILE VARCHAR(32) NOT NULL," +
                 "LONGEST_WORD_IN_FILE VARCHAR(32) NOT NULL," +
-                "LENGTH_WORD_LONG NUMBER NOT NULL," +
+                "LENGTH_WORD_LONG INT NOT NULL," +
                 "SHORTEST_WORD_IN_FILE VARCHAR(32) NOT NULL," +
-                "LENGTH_WORD_SHORT NUMBER NOT NULL," +
-                "AVG_WORD_LENGTH_IN_FILE NUMBER," +
-                "AVG_LINE_LENGTH_IN_FILE NUMBER NOT NULL)";
+                "LENGTH_WORD_SHORT INT NOT NULL," +
+                "AVG_WORD_LENGTH_IN_FILE INT," +
+                "AVG_LINE_LENGTH_IN_FILE INT NOT NULL)";
         String sqlDropTableLine = "DROP TABLE IF EXISTS INFO_ABOUT_LINES";
-        String sqlCreateTableLine = "CREATE TABLE INFO_ABOUT_LINES(ID_LINE NUMBER PRIMARY KEY AUTO_INCREMENT NOT NULL," +
-                "ID_FILE NUMBER NOT NULL," +
+        String sqlCreateTableLine = "CREATE TABLE INFO_ABOUT_LINES(ID_LINE INT PRIMARY KEY AUTO_INCREMENT NOT NULL," +
+                "ID_FILE INT NOT NULL," +
                 "LONGEST_WORD_IN_LINE VARCHAR(32) NOT NULL," +
-                "LENGTH_WORD_LONG NUMBER NOT NULL," +
+                "LENGTH_WORD_LONG INT NOT NULL," +
                 "SHORTEST_WORD_IN_LINE VARCHAR(32) NOT NULL," +
-                "LENGTH_WORD_SHORT NUMBER NOT NULL," +
-                "AVG_WORD_LENGTH_IN_LINE NUMBER," +
-                "LINE_LENGTH NUMBER NOT NULL," +
+                "LENGTH_WORD_SHORT INT NOT NULL," +
+                "AVG_WORD_LENGTH_IN_LINE INT," +
+                "LINE_LENGTH INT NOT NULL," +
                 "CONSTRAINT FILE FOREIGN KEY (ID_FILE) REFERENCES INFO_ABOUT_FILES (ID_FILE))";
         try(Connection connection = DataBaseConnect.connection()){
             Statement statementFiles = connection.createStatement();
